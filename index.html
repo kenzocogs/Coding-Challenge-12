@@ -1,0 +1,31 @@
+<!-- Task 1: Setup Canvas Structure -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Drawing</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+
+    <div>
+        <label>
+            <input type="radio" name="tool" value="line" checked> Line
+        </label>
+        <label>
+            <input type="radio" name="tool" value="circle" checked> Circle
+        </label>
+        <label>
+            <input type="radio" name="tool" value="rectangle" checked> Rectangle
+        </label>
+    </div>
+
+    <div>
+        <label for="selectColor">Select Color:</label>
+        <input type="color" id="selectColor">
+    </div>
+    <button id="clearCanvas">Clear Canvas</button>
+    <script src="app.js"></script>
+</body>
+</html>
