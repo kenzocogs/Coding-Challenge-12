@@ -3,7 +3,9 @@
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 const colorSelector = document.getElementById('selectColor')
-const clearButton = document.getElementById('clearCanvas')
+const shapeSelector = document.querySelectorAll('input[name="shape"]')
+const clearCanvasButton = document.getElementById('clearCanvas')
+
 
 let drawing = false;
 let startX;
@@ -28,4 +30,19 @@ drawing = false
 ctx.closePath();
 })
 
-//
+// Task 3: Implement Shape Drawing Logic
+function draw(mouseX, mouseY) {
+let shape = shapeSelector.value 
+ctx.beginPath (); 
+
+if (shape === line) {
+    ctx.moveTo(mouseX, mouseY);  
+    ctx.lineTo(mouseX, mouseY);  
+    ctx.stroke();
+} else if (shape === rectangle) {
+ctx.fillRect(mouseX, mouseY, mouseX - startX, mouseY - startY)
+} else if (shape === circle) {
+    const radius = Math.sqrt(Math.pow(mouseX - startX, 2) + Math.pow(mouseY - startY, 2));
+    ctx.arc (mouseX, mouseY, x, radius, 2* Math.PI)
+}
+}
