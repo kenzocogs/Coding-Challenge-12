@@ -34,15 +34,21 @@ ctx.closePath();
 function draw(mouseX, mouseY) {
 let shape = shapeSelector.value 
 ctx.beginPath (); 
+ctx.fillStyle = colorSelector.value
 
 if (shape === line) {
     ctx.moveTo(mouseX, mouseY);  
     ctx.lineTo(mouseX, mouseY);  
-    ctx.stroke();
 } else if (shape === rectangle) {
 ctx.fillRect(mouseX, mouseY, mouseX - startX, mouseY - startY)
 } else if (shape === circle) {
     const radius = Math.sqrt(Math.pow(mouseX - startX, 2) + Math.pow(mouseY - startY, 2));
     ctx.arc (mouseX, mouseY, x, radius, 2* Math.PI)
 }
+ctx.stroke()
 }
+
+// Task 4: Add Color Selection and Canvas Clearing
+clearCanvasButton.addEventListener ('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+})
